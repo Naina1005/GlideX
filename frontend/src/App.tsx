@@ -48,10 +48,17 @@ function App() {
 
   return (
     <div className="page-shell">
+      <div className="top-left-brand">
+        <svg className="top-left-logo" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="36" height="36" rx="6" fill="#ffffff" />
+          <path className="swoosh" d="M6 30 C14 12, 22 10, 32 6" fill="none" stroke="#000000" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+        <div className="top-left-text">GlideX</div>
+      </div>
       <div className="hero-card">
         <header className="hero-header">
-          <div className="brand">Welcome to GlideX</div>
-          <p className="hero-subtitle">Upload documents, query them in natural language, and get fast context-aware answers.</p>
+          <div className="brand">Ask your documents — get instant answers.</div>
+          <p className="hero-subtitle">Upload files, ask in natural language, and get precise, context-aware responses.</p>
         </header>
 
         <section className="chat-card">

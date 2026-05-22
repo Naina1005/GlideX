@@ -9,8 +9,8 @@ html, body {
 
 body {
   font-family: Inter, system-ui, sans-serif;
-  background: radial-gradient(circle at top, #090b12 0%, #111827 45%, #0f172a 100%);
-  color: #e2e8f0;
+  background: #ffffff;
+  color: #000000;
 }
 
 button,
@@ -29,9 +29,9 @@ input {
 .hero-card {
   width: min(100%, 900px);
   min-height: 100vh;
-  background: linear-gradient(180deg, rgba(15,23,42,0.98) 0%, rgba(15,23,42,0.92) 100%);
+  background: #ffffff;
   border-radius: 36px;
-  box-shadow: 0 60px 120px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -51,12 +51,12 @@ input {
   font-weight: 800;
   letter-spacing: -0.04em;
   margin-bottom: 20px;
-  color: #f8fafc;
+  color: #000000;
 }
 
 .hero-subtitle {
   margin: 0;
-  color: #cbd5e1;
+  color: #000000;
   font-size: 1.05rem;
   line-height: 1.8;
 }
@@ -68,7 +68,8 @@ input {
   flex-direction: column;
   gap: 18px;
   padding-top: 24px;
-  border-top: 1px solid rgba(148, 163, 184, 0.18);
+  border-top: 1px solid rgba(220,220,220,0.7);
+  background: #ffffff;
 }
 
 .chat-window {
@@ -79,6 +80,8 @@ input {
   max-height: 360px;
   overflow-y: auto;
   padding-right: 4px;
+  background: #ffffff;
+  color: #000000;
 }
 
 .input-wrapper {
@@ -100,27 +103,29 @@ input {
   border-radius: 24px;
   line-height: 1.7;
   word-break: break-word;
+  color: #000000;
+  background: #f8f9fa;
 }
 
 .message.user {
   align-self: flex-end;
-  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
-  color: white;
+  background: #e6f0ff;
+  color: #000000;
   border-bottom-right-radius: 6px;
 }
 
 .message.assistant {
   align-self: flex-start;
-  background: #111827;
-  color: #e2e8f0;
+  background: #ffffff;
+  color: #000000;
   border-bottom-left-radius: 6px;
-  border: 1px solid rgba(148, 163, 184, 0.12);
+  border: 1px solid rgba(230,230,230,0.9);
 }
 
 .message.system {
   align-self: center;
-  background: #1e293b;
-  color: #f8fafc;
+  background: #ffffff;
+  color: #000000;
 }
 
 .query-box {
@@ -134,18 +139,18 @@ input {
   width: 100%;
   padding: 16px 18px;
   border-radius: 999px;
-  border: 1px solid rgba(8, 10, 8, 0.18);
-  background: #010102;
-  color: #e2e8f0;
+  border: 1px solid rgba(220,220,220,0.8);
+  background: #ffffff;
+  color: #000000;
   outline: none;
 }
 
 .query-box input::placeholder {
-  color: #94a3b8;
+  color: #94989e;
 }
 
 .query-box input:disabled {
-  background: #23232b; 
+  background: #ffffff; 
   /* chat prompt box  */
 }
 
@@ -163,25 +168,27 @@ input {
   font-weight: 700;
 }
 
+/* + sign */
 .icon-button {
   width: 52px;
-  background: #1f2937;
-  color: #f8fafc;
+  background: #000000;
+  color: #ffffff;
   font-size: 1.4rem;
 }
-
+/* send button */
 .send-button {
-  background: #2563eb;
-  color: white;
+  background: #000000;
+  color: #ffffff;
 }
 
+/* + and send buttton on hover */
 .icon-button:hover,
 .send-button:hover {
-  opacity: 0.95;
+  opacity: 0.7;
 }
 
 .query-box button:disabled {
-  opacity: 0.55;
+  opacity: 1;
   cursor: not-allowed;
 }
 
@@ -215,16 +222,51 @@ input {
   }
 }
 
-@media (max-width: 720px) {
-  .hero-card {
-    border-radius: 24px;
-  }
+.hero-card {
+  border-radius: 24px;
+}
 
-  .hero-header,
-  .chat-topbar,
-  .input-wrapper,
-  .chat-window {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+/* Top-left animated brand */
+.top-left-brand {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  padding: 10px 18px;
+  border-radius: 0 12px 12px 0;
+  box-shadow: 0 10px 30px rgba(15,23,42,0.08);
+  white-space: nowrap;
+}
+
+.top-left-logo {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+}
+
+.top-left-logo .swoosh {
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+  animation: drawSwoosh 900ms ease-out forwards;
+}
+
+@keyframes drawSwoosh {
+  to { stroke-dashoffset: 0; }
+}
+
+.top-left-text {
+  font-weight: 900;
+  color: #000000;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 560px) {
+  .top-left-brand { top: 0; left: 0; padding: 8px 12px; }
+  .top-left-text { font-size: 0.95rem; }
+  .top-left-logo { width: 36px; height: 36px; }
 }
